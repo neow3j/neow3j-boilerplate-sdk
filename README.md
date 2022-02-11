@@ -7,25 +7,25 @@ to build, sign and send a transaction and to track new blocks on the Neo N3 bloc
 
 [Java 8](https://adoptium.net/) (or higher) is required.  
 
-1. **Clone this git repo:**
+#### 1. **Clone this git repo:**
 
 ```bash
 git clone https://github.com/neow3j/neow3j-boilerplate-sdk.git
 ```
 
-2. **Go to the project directory:**
+#### 2. **Go to the project directory:**
 
 ```bash
 cd neow3j-boilerplate-sdk
 ```
 
-3. **Build the project**
+#### 3. **Build the project**
 
 ```bash
 ./gradlew build
 ```
 
-4. **Execute examples**
+#### 4. **Execute examples**
 
 The provided endpoints in the examples connect to a testnet Neo node. If you want to run a local Neo
 network, we recommend using  [*Virtual Studio Code*](https://code.visualstudio.com/) (VSCode) for trying
@@ -37,7 +37,7 @@ to set it up.
 
 You can then execute the examples, e.g., via the `Run` buttons above the `main` methods.
 
-5. **Give us a GitHub star! :star::star::star:**
+#### 5. **Give us a GitHub star! :star::star::star:**
 
 ## About
 
