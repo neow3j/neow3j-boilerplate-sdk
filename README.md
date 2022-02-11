@@ -32,7 +32,7 @@ network, we recommend using  [*Virtual Studio Code*](https://code.visualstudio.c
 these examples. You can then make use of the [*Neo Blockchain
 Toolkit*](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit)
 which gives you the best developer experience with Neo. Checkout their [Quickstart
-Guide](https://github.com/neo-project/neo-blockchain-toolkit/blob/master/quickstart.md) for how
+Guide](https://ngdenterprise.com/neo-tutorials/quickstart1.html) for how
 to set it up. 
 
 You can then execute the examples, e.g., via the `Run` buttons above the `main` methods.
