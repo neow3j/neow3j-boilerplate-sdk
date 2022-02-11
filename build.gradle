@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'io.neow3j.gradle-plugin' version '3.15.0'
+}
+
+group 'com.axlabs'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.neow3j:contract:3.15.0',
+            'ch.qos.logback:logback-classic:1.2.10'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2',
+            'ch.qos.logback:logback-classic:1.2.10'
+}
+
+test {
+    useJUnitPlatform()
+}
