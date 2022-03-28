@@ -45,8 +45,8 @@ public class BuildAndSendTransaction {
 
         // Make sure the node returns no error and then get the transaction hash and wait for execution.
         if (response.hasError()) {
-            System.out.printf("Transaction was not successful. Error message from Neo node was: "
-                    + "'%s'\n", response.getError().getMessage());
+            System.out.printf("Transaction was not successful. Error message from Neo node was: '%s'\n",
+                    response.getError().getMessage());
         } else {
             // Get the transaction hash and wait for the transaction to be persisted.
             Hash256 txHash = response.getSendRawTransaction().getHash();
