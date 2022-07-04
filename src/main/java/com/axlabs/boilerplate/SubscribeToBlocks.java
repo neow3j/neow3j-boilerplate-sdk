@@ -10,7 +10,7 @@ public class SubscribeToBlocks {
     public static void main(String[] args) throws IOException {
 
         // Initialize Neow3j to connect to a testnet Neo node.
-        Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t4.neo.org:20332"));
+        Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 
         // Subscribe to new blocks on the testnet.
         neow3j.subscribeToNewBlocksObservable(true)

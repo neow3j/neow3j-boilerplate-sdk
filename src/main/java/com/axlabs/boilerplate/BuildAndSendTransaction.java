@@ -22,7 +22,7 @@ public class BuildAndSendTransaction {
     public static void main(String[] args) throws Throwable {
 
         // Initialize Neow3j to connect to a testnet Neo node.
-        Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t4.neo.org:20332"));
+        Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 
         // Initialize Neo token.
         NeoToken neoToken = new NeoToken(neow3j);
