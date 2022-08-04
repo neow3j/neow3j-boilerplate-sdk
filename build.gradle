@@ -13,10 +13,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.neow3j:contract:3.18.0',
+    implementation 'io.neow3j:contract:3.18.1',
             'ch.qos.logback:logback-classic:1.2.11'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2',
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0',
             'ch.qos.logback:logback-classic:1.2.11'
 }
 
