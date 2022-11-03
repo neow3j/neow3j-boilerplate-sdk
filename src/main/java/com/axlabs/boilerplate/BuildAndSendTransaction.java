@@ -1,7 +1,6 @@
 package com.axlabs.boilerplate;
 
 import io.neow3j.contract.GasToken;
-import io.neow3j.contract.NeoToken;
 import io.neow3j.crypto.WIF;
 import io.neow3j.protocol.Neow3j;
 import io.neow3j.protocol.core.response.NeoApplicationLog;
@@ -16,6 +15,7 @@ import io.neow3j.utils.Await;
 import io.neow3j.utils.Numeric;
 import io.neow3j.wallet.Account;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class BuildAndSendTransaction {
@@ -34,8 +34,10 @@ public class BuildAndSendTransaction {
                 Numeric.hexStringToByteArray("6c54536dbd876b92bfc96dd7b9fd6a4286d9a51ac5e26b5cf9becfa27e330918"));
         Account alice = Account.fromWIF(aliceWif);
 
-        // Start building a transfer transaction of NEO.
-        TransactionBuilder b = gasToken.transfer(alice, recipient, new BigInteger("10"));
+        // Start building a transfer transaction of GAS. Note that the GasToken has 8 decimals and you need to provide
+        // the transfer amount in fractions. The following 1 GAS equals 1_00000000 GAS fractions.
+        BigInteger amount = gasToken.toFractions(new BigDecimal("1"));
+        TransactionBuilder b = gasToken.transfer(alice, recipient, amount);
 
         // Set the signers, sign the transaction and get the signed transaction ready to be sent.
         Transaction tx = b.signers(AccountSigner.calledByEntry(alice))
