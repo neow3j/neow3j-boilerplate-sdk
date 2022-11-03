@@ -1,5 +1,6 @@
 package com.axlabs.boilerplate;
 
+import io.neow3j.contract.GasToken;
 import io.neow3j.contract.NeoToken;
 import io.neow3j.crypto.WIF;
 import io.neow3j.protocol.Neow3j;
@@ -24,8 +25,8 @@ public class BuildAndSendTransaction {
         // Initialize Neow3j to connect to a testnet Neo node.
         Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 
-        // Initialize Neo token.
-        NeoToken neoToken = new NeoToken(neow3j);
+        // Initialize GasToken.
+        GasToken gasToken = new GasToken(neow3j);
 
         // Define sender and recipient of transfer.
         Hash160 recipient = new Hash160("b897160506030c5d06dc087a21544b4853768012");
@@ -34,7 +35,7 @@ public class BuildAndSendTransaction {
         Account alice = Account.fromWIF(aliceWif);
 
         // Start building a transfer transaction of NEO.
-        TransactionBuilder b = neoToken.transfer(alice, recipient, new BigInteger("10"));
+        TransactionBuilder b = gasToken.transfer(alice, recipient, new BigInteger("10"));
 
         // Set the signers, sign the transaction and get the signed transaction ready to be sent.
         Transaction tx = b.signers(AccountSigner.calledByEntry(alice))
