@@ -38,6 +38,7 @@ to set it up.
 You can then execute the examples, e.g., via the `Run` buttons above the `main` methods.
 
 #### 5. **Give us a GitHub star! :star::star::star:**
+
 ## Advertisement
  <table>
   <tr>
