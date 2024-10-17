@@ -48,7 +48,7 @@ cd neow3j-boilerplate-sdk
 #### 4. **Execute examples**
 
 The provided endpoints in the examples connect to a testnet Neo node. If you want to run a local Neo
-network, we recommend using  [*Virtual Studio Code*](https://code.visualstudio.com/) (VSCode) for trying
+network, we recommend using  [*Visual Studio Code*](https://code.visualstudio.com/) (VSCode) for trying
 these examples. You can then make use of the [*Neo Blockchain
 Toolkit*](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit)
 which gives you the best developer experience with Neo. Checkout their [Quickstart
