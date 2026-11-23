@@ -4,11 +4,11 @@ import io.neow3j.contract.GasToken;
 import io.neow3j.crypto.WIF;
 import io.neow3j.protocol.Neow3j;
 import io.neow3j.protocol.core.response.NeoApplicationLog;
-import io.neow3j.protocol.core.response.NeoSendRawTransaction;
 import io.neow3j.protocol.http.HttpService;
 import io.neow3j.transaction.AccountSigner;
 import io.neow3j.transaction.Transaction;
 import io.neow3j.transaction.TransactionBuilder;
+import io.neow3j.transaction.TransactionSubmission;
 import io.neow3j.types.Hash160;
 import io.neow3j.types.Hash256;
 import io.neow3j.utils.Await;
@@ -36,7 +36,7 @@ public class BuildAndSendTransaction {
 
         // Start building a transfer transaction of GAS. Note that the GasToken has 8 decimals and you need to provide
         // the transfer amount in fractions. The following 1 GAS equals 1_00000000 GAS fractions.
-        BigInteger amount = gasToken.toFractions(new BigDecimal("1"));
+        BigInteger amount = gasToken.toBaseUnits(new BigDecimal("1"));
         TransactionBuilder b = gasToken.transfer(alice, recipient, amount);
 
         // Set the signers, sign the transaction and get the signed transaction ready to be sent.
@@ -44,15 +44,15 @@ public class BuildAndSendTransaction {
                 .sign();
 
         // Send the transaction.
-        NeoSendRawTransaction response = tx.send();
+        TransactionSubmission txSubmission = tx.send();
 
         // Make sure the node returns no error and then get the transaction hash and wait for execution.
-        if (response.hasError()) {
+        if (txSubmission.hasError()) {
             System.out.printf("Transaction was not successful. Error message from Neo node was: '%s'\n",
-                    response.getError().getMessage());
+                    txSubmission.getError().getMessage());
         } else {
             // Get the transaction hash and wait for the transaction to be persisted.
-            Hash256 txHash = response.getSendRawTransaction().getHash();
+            Hash256 txHash = txSubmission.getTxId();
             Await.waitUntilTransactionIsExecuted(txHash, neow3j);
 
             // Get the transaction's application log and print it.
